@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ListingItem({ listing }) {
   return (
-    <div>
+    <Link href={`/listings/${listing.id}`}>
       <Image
         src={listing.thumbnail_url}
         width={300}
@@ -18,6 +19,6 @@ export default function ListingItem({ listing }) {
         <li>Area: {listing.area}</li>
         <li>Year: {listing.year_built}</li>
       </ul>
-    </div>
+    </Link>
   );
 }
