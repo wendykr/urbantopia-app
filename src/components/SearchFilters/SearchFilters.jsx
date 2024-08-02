@@ -10,7 +10,7 @@ export default function SearchFilters({ setFilters }) {
   };
 
   return (
-    <div className="bg-slate-100 p-8 mb-4">
+    <div className="bg-slate-100 p-8">
       <div className="flex gap-2 justify-center mb-4">
         <input
           type="text"

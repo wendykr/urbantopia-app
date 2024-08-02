@@ -10,7 +10,7 @@ export default function SearchPage() {
   return (
     <div>
       <SearchFilters setFilters={setFilters} />
-      <div className="grid grid-cols-3 gap-4 px-8">
+      <div className="grid grid-cols-3 gap-4 px-8 py-8">
         {listings.map((listing) => {
           return <ListingItem key={listing.id} listing={listing} />;
         })}
