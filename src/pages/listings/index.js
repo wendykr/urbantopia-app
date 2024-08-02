@@ -9,7 +9,7 @@ export default function SearchPage() {
     <div>
       <Header />
       <SearchFilters />
-      <div class="grid grid-cols-3 gap-4 px-8">
+      <div className="grid grid-cols-3 gap-4 px-8">
         {items.map((item) => {
           return <ListingItem key={item} />;
         })}
