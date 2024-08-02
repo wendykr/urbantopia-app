@@ -1,4 +1,3 @@
-import { useState } from "react";
 import FilterInput from "../FilterInput/FilterInput";
 import FilterSelect from "../FilterSelect/FilterSelect";
 
@@ -16,7 +15,7 @@ export default function SearchFilters({ setFilters }) {
         <input
           type="text"
           placeholder="Type here"
-          className="input input-bordered input-primary w-full max-w-4xl"
+          className="input input-bordered w-full max-w-4xl"
           onChange={(event) => handleFilterChange("search", event.target.value)}
         />
         <button className="btn">Search</button>
