@@ -1,4 +1,10 @@
-export default function FilterSelect({ label, name, handleFilterChange }) {
+export default function FilterSelect({
+  label,
+  name,
+  handleFilterChange,
+  placeholder,
+  options,
+}) {
   return (
     <label className="form-control w-full max-w-xs">
       <div className="label">
@@ -9,11 +15,15 @@ export default function FilterSelect({ label, name, handleFilterChange }) {
         name={name}
         onChange={(event) => handleFilterChange(name, event.target.value)}
       >
-        <option disabled selected>
-          {label}
-        </option>
-        <option>Han Solo</option>
-        <option>Greedo</option>
+        {placeholder && (
+          <option disabled selected>
+            {placeholder}
+          </option>
+        )}
+
+        {options.map((option) => (
+          <option key={option}>{option}</option>
+        ))}
       </select>
     </label>
   );

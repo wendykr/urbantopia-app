@@ -26,6 +26,8 @@ export default function SearchFilters() {
           label="Location"
           name="location"
           handleFilterChange={handleFilterChange}
+          options={["Springfield", "Shelbyville", "Capital City"]}
+          placeholder="Select location"
         />
         <FilterInput
           label="Year"
@@ -41,6 +43,8 @@ export default function SearchFilters() {
           label="Property type"
           name="property_type"
           handleFilterChange={handleFilterChange}
+          options={["Apartment", "House", "Condo"]}
+          placeholder="Select type"
         />
         <FilterInput
           label="Bathrooms"
