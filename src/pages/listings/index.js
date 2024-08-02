@@ -1,10 +1,18 @@
+import ListingItem from "@/components/ListingItem/ListingItem";
 import SearchFilters from "@/components/SearchFilters/SearchFilters";
+
+const items = [1, 2, 3, 4, 5];
 
 export default function SearchPage() {
   return (
     <div>
       SearchPage
       <SearchFilters />
+      <div class="grid grid-cols-3 gap-4">
+        {items.map((item) => {
+          return <ListingItem key={item} />;
+        })}
+      </div>
     </div>
   );
 }
