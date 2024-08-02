@@ -1,10 +1,16 @@
+import { useState } from "react";
 import FilterInput from "../FilterInput/FilterInput";
 import FilterSelect from "../FilterSelect/FilterSelect";
 
 export default function SearchFilters() {
+  const [filters, setFilters] = useState({});
   const handleFilterChange = (name, value) => {
-    console.log(name, value);
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: value,
+    }));
   };
+
   return (
     <div className="bg-slate-100 p-8 mb-4">
       <div className="flex gap-2 justify-center mb-4">
