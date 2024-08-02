@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import useListingData from "@/hooks/useListingData";
 import Image from "next/image";
+import InquiryForm from "@/components/InquiryForm/InquiryForm";
 
 export default function DetailPage() {
   const router = useRouter();
@@ -49,6 +50,7 @@ export default function DetailPage() {
           );
         })}
       </div>
+      <InquiryForm listingId={listingId} />
     </div>
   );
 }
