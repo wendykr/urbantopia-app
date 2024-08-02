@@ -18,6 +18,7 @@ export default function SearchFilters() {
           type="text"
           placeholder="Type here"
           className="input input-bordered input-primary w-full max-w-4xl"
+          onChange={(event) => handleFilterChange("search", event.target.value)}
         />
         <button className="btn">Search</button>
       </div>
