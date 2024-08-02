@@ -11,6 +11,6 @@ export default function useListingsData() {
 
   useEffect(() => {
     fetchData();
-  });
+  }, []);
   return data;
 }
