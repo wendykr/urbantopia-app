@@ -6,7 +6,7 @@ import SearchFilters from "@/components/SearchFilters/SearchFilters";
 
 const items = [1, 2, 3, 4, 5];
 
-const useListingsData = () => {
+const useListingsData = (filters) => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
@@ -22,13 +22,14 @@ const useListingsData = () => {
 };
 
 export default function SearchPage() {
-  const listings = useListingsData();
+  const [filters, setFilters] = useState({});
+  const listings = useListingsData(filters);
 
   console.log("listings", listings);
   return (
     <div>
       <Header />
-      <SearchFilters />
+      <SearchFilters setFilters={setFilters} />
       <div className="grid grid-cols-3 gap-4 px-8">
         {items.map((item) => {
           return <ListingItem key={item} />;

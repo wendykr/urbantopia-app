@@ -2,8 +2,7 @@ import { useState } from "react";
 import FilterInput from "../FilterInput/FilterInput";
 import FilterSelect from "../FilterSelect/FilterSelect";
 
-export default function SearchFilters() {
-  const [filters, setFilters] = useState({});
+export default function SearchFilters({ setFilters }) {
   const handleFilterChange = (name, value) => {
     setFilters((prevFilters) => ({
       ...prevFilters,
