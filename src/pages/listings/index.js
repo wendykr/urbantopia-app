@@ -4,15 +4,13 @@ import Header from "@/components/Header/Header";
 import ListingItem from "@/components/ListingItem/ListingItem";
 import SearchFilters from "@/components/SearchFilters/SearchFilters";
 
-const items = [1, 2, 3, 4, 5];
-
 const useListingsData = (filters) => {
   const [data, setData] = useState([]);
 
   const fetchData = async () => {
     const response = await fetch("/listings.json");
     const data = await response.json();
-    console.log(data);
+    setData(data);
   };
 
   useEffect(() => {
@@ -25,14 +23,13 @@ export default function SearchPage() {
   const [filters, setFilters] = useState({});
   const listings = useListingsData(filters);
 
-  console.log("listings", listings);
   return (
     <div>
       <Header />
       <SearchFilters setFilters={setFilters} />
       <div className="grid grid-cols-3 gap-4 px-8">
-        {items.map((item) => {
-          return <ListingItem key={item} />;
+        {listings.map((listing) => {
+          return <ListingItem key={listing.id} listing={listing} />;
         })}
       </div>
     </div>
