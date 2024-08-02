@@ -1,6 +1,13 @@
 export default function InquiryForm({ listingId }) {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    // console.log("formData", Object.fromEntries(formData));
+    const data = Object.fromEntries(formData.entries());
+    console.log(data);
+  };
   return (
-    <form className="w-full max-w-xs">
+    <form className="w-full max-w-xs" onSubmit={handleSubmit}>
       <h2 className="text-2xl mb-4">Send Inquiry</h2>
       <div className="form-control">
         <label className="label">
