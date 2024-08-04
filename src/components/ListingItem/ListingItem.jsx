@@ -10,7 +10,7 @@ export default function ListingItem({ listing }) {
         height={200}
         alt={listing.title}
       />
-      <h3 className="text-lg font-bold">{listing.title}</h3>
+      <h2 className="text-lg font-bold">{listing.title}</h2>
       <ul>
         <li>Location: {listing.location}</li>
         <li>Price: ${listing.price}</li>

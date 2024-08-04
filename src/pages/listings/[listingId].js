@@ -16,9 +16,9 @@ export default function DetailPage() {
 
   return (
     <div>
-      <div className="grid grid-cols-2 gap-4 px-8 mb-4">
+      <div className="grid grid-cols-2 gap-8 px-[160px] py-8 justify-items-end m-auto">
         <div>
-          <h1 className="text-4xl mb-2">{listing.title}</h1>
+          <h1 className="text-4xl mb-2 font-bold">{listing.title}</h1>
           <p className="mb-2">{listing.description}</p>
           <ul className="list-disc pl-8">
             <li>Location: {listing.location}</li>
@@ -31,26 +31,28 @@ export default function DetailPage() {
         </div>
         <Image
           src={listing.thumbnail_url}
-          width={300}
-          height={300}
           alt={listing.title}
+          width={400}
+          height={400}
         ></Image>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 px-8">
+      <div className="grid grid-cols-3 gap-4 my-11 px-8 justify-items-center">
         {listing.gallery_urls.map((imageUrl, index) => {
           return (
             <Image
               key={index}
               src={imageUrl}
+              alt={listing.description}
               width={300}
               height={300}
-              alt={listing.description}
             />
           );
         })}
       </div>
-      <InquiryForm listingId={listingId} />
+      <div className="bg-slate-100 w-full m-0 py-8">
+        <InquiryForm listingId={listingId} />
+      </div>
     </div>
   );
 }

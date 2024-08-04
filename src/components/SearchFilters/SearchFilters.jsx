@@ -18,9 +18,9 @@ export default function SearchFilters({ setFilters }) {
           className="input input-bordered w-full max-w-4xl"
           onChange={(event) => handleFilterChange("search", event.target.value)}
         />
-        <button className="btn">Search</button>
+        <button className="btn bg-slate-700 hover:bg-slate-600 text-white">Search</button>
       </div>
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-3 justify-items-center">
         <FilterSelect
           label="Location"
           name="location"
