@@ -40,6 +40,7 @@ export default function DetailPage({ listing }) {
               alt={listing.description}
               width={300}
               height={300}
+              sizes="33vw"
             />
           );
         })}
