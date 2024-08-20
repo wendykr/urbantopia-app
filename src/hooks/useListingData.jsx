@@ -1,14 +1,21 @@
+import { createClient } from "@/utils/supabase/component";
 import { useState, useEffect } from "react";
 
 export default function useListingData(listingId) {
+  const supabase = createClient();
   const [data, setData] = useState(null);
 
+  console.log("data", data);
+
   const fetchData = async () => {
-    const response = await fetch("/listings.json");
-    const responseData = await response.json();
-    setData(
-      responseData.filter((listing) => listing.id === Number(listingId))?.[0]
-    );
+    if (!listingId) return;
+
+    const { data } = await supabase
+      .from("listings")
+      .select()
+      .eq("id", listingId);
+
+    setData(data?.[0] ?? null);
   };
 
   useEffect(() => {
