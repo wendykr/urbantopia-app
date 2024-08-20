@@ -2,13 +2,16 @@ import { useRouter } from "next/router";
 import useListingData from "@/hooks/useListingData";
 import Image from "next/image";
 import InquiryForm from "@/components/InquiryForm/InquiryForm";
+import { createClient } from "@/utils/supabase/static-props";
 
-export default function DetailPage() {
-  const router = useRouter();
+export default function DetailPage({ listing }) {
+  // const router = useRouter();
 
-  const { listingId } = router.query;
+  // const { listingId } = router.query;
 
-  const listing = useListingData(listingId);
+  // console.log("props", props.listing);
+
+  // const listing = useListingData(listingId);
 
   if (!listing) {
     return <div>Loading ...</div>;
@@ -51,8 +54,39 @@ export default function DetailPage() {
         })}
       </div>
       <div className="bg-slate-100 w-full m-0 py-8">
-        <InquiryForm listingId={listingId} />
+        <InquiryForm listingId={listing.id} />
       </div>
     </div>
   );
+}
+
+export async function getStaticProps(context) {
+  const supabase = createClient();
+  const listingId = context.params.listingId;
+
+  const { data: listing, errror } = await supabase
+    .from("listings")
+    .select()
+    .eq("id", listingId);
+
+  return {
+    props: {
+      listing: listing?.[0],
+    },
+  };
+}
+
+export async function getStaticPaths() {
+  const supabase = createClient();
+  const { data: listings, errror } = await supabase
+    .from("listings")
+    .select("id");
+
+  const paths = listings.map((listing) => ({
+    params: { listingId: listing.id.toString() },
+  }));
+  return {
+    paths: paths,
+    fallback: true,
+  };
 }
