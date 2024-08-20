@@ -8,7 +8,7 @@ export default function useListingsData(filters) {
   console.log("filters: ", filters);
 
   const fetchData = async () => {
-    const { data: listings, error } = await supabase
+    let query = supabase
       .from("listings")
       .select()
       .gte("price", filters.min_price ?? 0)
@@ -16,9 +16,17 @@ export default function useListingsData(filters) {
       .gte("year_built", filters.year ?? 0)
       .gte("area", filters.area ?? 0)
       .gte("number_of_bedrooms", filters.bedrooms ?? 0)
-      .gte("number_of_bathrooms", filters.bathrooms ?? 0)
-      .eq("location", filters.location ?? "x")
-      .eq("property_type", filters.type ?? "x");
+      .gte("number_of_bathrooms", filters.bathrooms ?? 0);
+
+    if (filters.location) {
+      query = query.ilike("location", `%${filters.location}%`);
+    }
+
+    if (filters.type) {
+      query = query.ilike("property_type", `%${filters.type}%`);
+    }
+
+    const { data: listings, error } = await query;
     setData(listings);
   };
 
