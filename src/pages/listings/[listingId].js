@@ -1,18 +1,8 @@
-import { useRouter } from "next/router";
-import useListingData from "@/hooks/useListingData";
 import Image from "next/image";
 import InquiryForm from "@/components/InquiryForm/InquiryForm";
 import { createClient } from "@/utils/supabase/static-props";
 
 export default function DetailPage({ listing }) {
-  // const router = useRouter();
-
-  // const { listingId } = router.query;
-
-  // console.log("props", props.listing);
-
-  // const listing = useListingData(listingId);
-
   if (!listing) {
     return <div>Loading ...</div>;
   }
