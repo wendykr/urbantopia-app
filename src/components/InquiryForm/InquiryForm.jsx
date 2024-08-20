@@ -1,11 +1,22 @@
+import { createClient } from "@/utils/supabase/component";
+
 export default function InquiryForm({ listingId }) {
-  const handleSubmit = (event) => {
+  const supabase = createClient();
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+    if (!listingId) return null;
+
     const formData = new FormData(event.target);
-    // console.log("formData", Object.fromEntries(formData));
+
     const data = Object.fromEntries(formData.entries());
     console.log(data);
+
+    const { error } = await supabase
+      .from("inquiries")
+      .insert({ ...data, listingId: listingId });
   };
+
   return (
     <form className="w-full max-w-xl m-auto" onSubmit={handleSubmit}>
       <h2 className="text-2xl mb-4 font-bold text-center">Send Inquiry</h2>
@@ -20,7 +31,7 @@ export default function InquiryForm({ listingId }) {
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input name="email" type="text" className="input input-bordered" />
+          <input name="email" type="email" className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">
