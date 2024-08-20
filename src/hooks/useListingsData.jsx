@@ -5,8 +5,6 @@ export default function useListingsData(filters) {
   const supabase = createClient();
   const [data, setData] = useState([]);
 
-  console.log("filters: ", filters);
-
   const fetchData = async () => {
     let query = supabase
       .from("listings")
@@ -22,8 +20,8 @@ export default function useListingsData(filters) {
       query = query.ilike("location", `%${filters.location}%`);
     }
 
-    if (filters.type) {
-      query = query.ilike("property_type", `%${filters.type}%`);
+    if (filters.property_type) {
+      query = query.ilike("property_type", `%${filters.property_type}%`);
     }
 
     const { data: listings, error } = await query;

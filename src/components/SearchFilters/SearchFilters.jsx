@@ -1,7 +1,9 @@
+import useOptionValues from "@/hooks/useOptionValues";
 import FilterInput from "../FilterInput/FilterInput";
 import FilterSelect from "../FilterSelect/FilterSelect";
 
 export default function SearchFilters({ setFilters }) {
+  const { locations, types } = useOptionValues();
   const handleFilterChange = (name, value) => {
     setFilters((prevFilters) => ({
       ...prevFilters,
@@ -27,7 +29,7 @@ export default function SearchFilters({ setFilters }) {
           label="Location"
           name="location"
           handleFilterChange={handleFilterChange}
-          options={["Springfield", "Shelbyville", "Capital City"]}
+          options={locations}
           placeholder="Select location"
         />
         <FilterInput
@@ -46,7 +48,7 @@ export default function SearchFilters({ setFilters }) {
           label="Property type"
           name="property_type"
           handleFilterChange={handleFilterChange}
-          options={["Apartment", "House", "Condo"]}
+          options={types}
           placeholder="Select type"
         />
         <FilterInput
