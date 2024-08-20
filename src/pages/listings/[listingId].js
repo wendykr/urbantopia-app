@@ -1,6 +1,7 @@
 import Image from "next/image";
 import InquiryForm from "@/components/InquiryForm/InquiryForm";
 import { createClient } from "@/utils/supabase/static-props";
+import { notFound } from "next/navigation";
 
 export default function DetailPage({ listing }) {
   if (!listing) {
@@ -54,15 +55,24 @@ export async function getStaticProps(context) {
   const supabase = createClient();
   const listingId = context.params.listingId;
 
-  const { data: listing, errror } = await supabase
+  const { data: listings, error } = await supabase
     .from("listings")
     .select()
     .eq("id", listingId);
 
+  const listing = listings?.[0];
+
+  if (!listing || error) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
-      listing: listing?.[0],
+      listing,
     },
+    revalidate: 60 * 60 * 24,
   };
 }
 
