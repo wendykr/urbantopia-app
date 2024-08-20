@@ -18,7 +18,9 @@ export default function SearchFilters({ setFilters }) {
           className="input input-bordered w-full max-w-4xl"
           onChange={(event) => handleFilterChange("search", event.target.value)}
         />
-        <button className="btn bg-slate-700 hover:bg-slate-600 text-white">Search</button>
+        <button className="btn bg-slate-700 hover:bg-slate-600 text-white">
+          Search
+        </button>
       </div>
       <div className="grid grid-cols-3 justify-items-center">
         <FilterSelect
@@ -29,11 +31,13 @@ export default function SearchFilters({ setFilters }) {
           placeholder="Select location"
         />
         <FilterInput
+          type="number"
           label="Year"
           name="year"
           handleFilterChange={handleFilterChange}
         />
         <FilterInput
+          type="number"
           label="Max Price"
           name="max_price"
           handleFilterChange={handleFilterChange}
@@ -46,21 +50,25 @@ export default function SearchFilters({ setFilters }) {
           placeholder="Select type"
         />
         <FilterInput
+          type="number"
           label="Bathrooms"
           name="bathrooms"
           handleFilterChange={handleFilterChange}
         />
         <FilterInput
+          type="number"
           label="Min Price"
           name="min_price"
           handleFilterChange={handleFilterChange}
         />
         <FilterInput
+          type="number"
           label="Area"
           name="area"
           handleFilterChange={handleFilterChange}
         />
         <FilterInput
+          type="number"
           label="Bedrooms"
           name="bedrooms"
           handleFilterChange={handleFilterChange}
