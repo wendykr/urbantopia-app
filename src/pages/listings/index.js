@@ -10,11 +10,15 @@ export default function SearchPage() {
   return (
     <div>
       <SearchFilters setFilters={setFilters} />
-      <div className="grid grid-cols-3 gap-11 px-8 py-8 justify-items-center">
-        {listings.map((listing) => {
-          return <ListingItem key={listing.id} listing={listing} />;
-        })}
-      </div>
+      {listings && listings.length > 0 ? (
+        <div className="grid grid-cols-3 gap-11 px-8 py-8 justify-items-center">
+          {listings.map((listing) => (
+            <ListingItem key={listing.id} listing={listing} />
+          ))}
+        </div>
+      ) : (
+        <h3 className="text-center">No listings found.</h3>
+      )}
     </div>
   );
 }
