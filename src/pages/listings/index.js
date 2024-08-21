@@ -17,7 +17,9 @@ export default function SearchPage() {
           ))}
         </div>
       ) : (
-        <h3 className="text-center">No listings found.</h3>
+        <div className="flex flex-row justify-center items-centerh-full ">
+          <h3 className="text-center text-xl">No listings found.</h3>
+        </div>
       )}
     </div>
   );
