@@ -12,6 +12,7 @@ export default function FilterInput({
       <input
         type={type}
         name={name}
+        min="0"
         placeholder="Type here"
         className="input input-bordered w-full max-w-xs"
         onChange={(event) => handleFilterChange(name, event.target.value)}
