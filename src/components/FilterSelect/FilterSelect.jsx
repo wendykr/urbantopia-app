@@ -16,7 +16,7 @@ export default function FilterSelect({
         onChange={(event) => handleFilterChange(name, event.target.value)}
       >
         {placeholder && (
-          <option defaultValue>
+          <option defaultValue value="">
             {placeholder}
           </option>
         )}
