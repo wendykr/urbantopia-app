@@ -13,7 +13,7 @@ export default function useListingsData(filters) {
     if (filters.max_price) {
       query = query.lte("price", filters.max_price ?? Infinity);
     }
-    if (filters.year_built) {
+    if (filters.year) {
       query = query.gte("year_built", filters.year ?? 0);
     }
     if (filters.area) {
