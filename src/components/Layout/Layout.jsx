@@ -4,13 +4,13 @@ import Header from "../Header/Header";
 
 export default function Layout({ children }) {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Head>
         <title>Urbantopia</title>
       </Head>
       <Header />
 
-      {children}
+      <main className="flex-grow">{children}</main>
 
       <Footer />
     </div>
