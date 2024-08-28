@@ -10,11 +10,24 @@ export default function InquiryForm({ listingId }) {
     const formData = new FormData(event.target);
 
     const data = Object.fromEntries(formData.entries());
+
+    if (!data.name || !data.email || !data.phone) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
     console.log(data);
 
     const { error } = await supabase
       .from("inquiries")
       .insert({ ...data, listingId: listingId });
+
+    if (error) {
+      alert("Error inserting data:", error);
+    } else {
+      event.target.reset();
+      alert("Form has been successfully sent.");
+    }
   };
 
   return (
