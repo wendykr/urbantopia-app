@@ -1,7 +1,6 @@
 import Image from "next/image";
 import InquiryForm from "@/components/InquiryForm/InquiryForm";
 import { createClient } from "@/utils/supabase/static-props";
-import { notFound } from "next/navigation";
 
 export default function DetailPage({ listing }) {
   if (!listing) {
@@ -10,7 +9,7 @@ export default function DetailPage({ listing }) {
 
   return (
     <div>
-      <div className="grid grid-cols-2 gap-8 px-[160px] py-8 justify-items-end m-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-20 lg:px-[160px] py-8 justify-items-center md:justify-items-end m-auto xl:max-w-6xl">
         <div>
           <h1 className="text-4xl mb-2 font-bold">{listing.title}</h1>
           <p className="mb-2">{listing.description}</p>
@@ -31,7 +30,7 @@ export default function DetailPage({ listing }) {
         ></Image>
       </div>
 
-      <div className="grid grid-cols-3 gap-4 my-11 px-8 justify-items-center">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 my-11 px-8 justify-items-center m-auto xl:max-w-6xl">
         {listing.gallery_urls.map((imageUrl, index) => {
           return (
             <Image

@@ -33,7 +33,7 @@ export default function InquiryForm({ listingId }) {
   return (
     <form className="w-full max-w-xl m-auto" onSubmit={handleSubmit}>
       <h2 className="text-2xl mb-4 font-bold text-center">Send Inquiry</h2>
-      <div className="grid grid-cols-2 gap-x-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 px-8 md:px-0">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Name</span>
@@ -65,12 +65,14 @@ export default function InquiryForm({ listingId }) {
           />
         </div>
       </div>
-      <button
-        className="btn bg-slate-700 hover:bg-slate-600 text-white w-full mt-4"
-        type="submit"
-      >
-        Send
-      </button>
+      <div className="px-8 md:px-0">
+        <button
+          className="btn bg-slate-700 hover:bg-slate-600 text-white w-full mt-4"
+          type="submit"
+        >
+          Send
+        </button>
+      </div>
     </form>
   );
 }
