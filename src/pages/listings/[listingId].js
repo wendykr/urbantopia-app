@@ -9,7 +9,7 @@ export default function DetailPage({ listing }) {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-20 lg:px-[160px] py-8 justify-items-center md:justify-items-end m-auto xl:max-w-6xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-8 md:px-20 lg:px-[160px] py-8 justify-items-center md:justify-items-end m-auto xl:max-w-6xl">
         <div>
           <h1 className="text-4xl mb-2 font-bold">{listing.title}</h1>
           <p className="mb-2">{listing.description}</p>
