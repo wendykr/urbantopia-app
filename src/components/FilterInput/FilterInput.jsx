@@ -4,6 +4,7 @@ export default function FilterInput({
   handleFilterChange,
   type = "text",
   placeholder,
+  inputMode,
 }) {
   return (
     <label className="form-control w-full max-w-xs">
@@ -17,6 +18,7 @@ export default function FilterInput({
         placeholder={placeholder}
         className="input input-bordered w-full max-w-xs"
         onChange={(event) => handleFilterChange(name, event.target.value)}
+        inputMode={inputMode}
       />
     </label>
   );

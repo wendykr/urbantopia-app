@@ -22,6 +22,7 @@ export default function SearchFilters({ setFilters }) {
             onChange={(event) =>
               handleFilterChange("search", event.target.value)
             }
+            inputMode="text"
           />
           <button className="btn bg-slate-700 hover:bg-slate-600 text-white">
             Search
@@ -41,6 +42,7 @@ export default function SearchFilters({ setFilters }) {
             name="year"
             handleFilterChange={handleFilterChange}
             placeholder="Enter Year"
+            inputMode="number"
           />
           <FilterInput
             type="number"
@@ -48,6 +50,7 @@ export default function SearchFilters({ setFilters }) {
             name="max_price"
             handleFilterChange={handleFilterChange}
             placeholder="Enter Max Price"
+            inputMode="number"
           />
           <FilterSelect
             label="Property type"
@@ -62,6 +65,7 @@ export default function SearchFilters({ setFilters }) {
             name="bathrooms"
             handleFilterChange={handleFilterChange}
             placeholder="Count of Bathrooms"
+            inputMode="number"
           />
           <FilterInput
             type="number"
@@ -69,6 +73,7 @@ export default function SearchFilters({ setFilters }) {
             name="min_price"
             handleFilterChange={handleFilterChange}
             placeholder="Enter Min Price"
+            inputMode="number"
           />
           <FilterInput
             type="number"
@@ -76,6 +81,7 @@ export default function SearchFilters({ setFilters }) {
             name="area"
             handleFilterChange={handleFilterChange}
             placeholder="Enter Area"
+            inputMode="number"
           />
           <FilterInput
             type="number"
@@ -83,6 +89,7 @@ export default function SearchFilters({ setFilters }) {
             name="bedrooms"
             handleFilterChange={handleFilterChange}
             placeholder="Count of Bedrooms"
+            inputMode="number"
           />
         </div>
       </div>
