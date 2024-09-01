@@ -3,6 +3,7 @@ export default function FilterInput({
   label,
   handleFilterChange,
   type = "text",
+  placeholder,
 }) {
   return (
     <label className="form-control w-full max-w-xs">
@@ -13,7 +14,7 @@ export default function FilterInput({
         type={type}
         name={name}
         min="0"
-        placeholder="Type here"
+        placeholder={placeholder}
         className="input input-bordered w-full max-w-xs"
         onChange={(event) => handleFilterChange(name, event.target.value)}
       />

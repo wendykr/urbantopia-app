@@ -17,7 +17,7 @@ export default function SearchFilters({ setFilters }) {
         <div className="flex gap-2 justify-center mb-4 flex-col md:flex-row">
           <input
             type="text"
-            placeholder="Type here"
+            placeholder="What are you looking for?"
             className="input input-bordered w-full max-w-4xl"
             onChange={(event) =>
               handleFilterChange("search", event.target.value)
@@ -40,12 +40,14 @@ export default function SearchFilters({ setFilters }) {
             label="Year"
             name="year"
             handleFilterChange={handleFilterChange}
+            placeholder="Enter Year"
           />
           <FilterInput
             type="number"
             label="Max Price"
             name="max_price"
             handleFilterChange={handleFilterChange}
+            placeholder="Enter Max Price"
           />
           <FilterSelect
             label="Property type"
@@ -59,24 +61,28 @@ export default function SearchFilters({ setFilters }) {
             label="Bathrooms"
             name="bathrooms"
             handleFilterChange={handleFilterChange}
+            placeholder="Count of Bathrooms"
           />
           <FilterInput
             type="number"
             label="Min Price"
             name="min_price"
             handleFilterChange={handleFilterChange}
+            placeholder="Enter Min Price"
           />
           <FilterInput
             type="number"
             label="Area"
             name="area"
             handleFilterChange={handleFilterChange}
+            placeholder="Enter Area"
           />
           <FilterInput
             type="number"
             label="Bedrooms"
             name="bedrooms"
             handleFilterChange={handleFilterChange}
+            placeholder="Count of Bedrooms"
           />
         </div>
       </div>
